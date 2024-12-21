@@ -1,3 +1,4 @@
+import { messages } from './../servers/session/types';
 import { sendUdpReq } from "./udpUtils";
 
 class ContextSafeType<T>{
@@ -19,7 +20,7 @@ class Url extends ContextSafeType<string>{
 
 
 interface Env{
-    port: string,
+    port: number,
     host: string
 }
 
@@ -30,7 +31,10 @@ class Client{
         this.env = env;
     }
 
-    startSession() {
-        sendUdpReq( , this.env.port, this.env.host)
+    async startSession() {
+        return await sendUdpReq({handlerId: messages.start_session.toString(), payload: {}} , this.env.port, this.env.host)
+    
     }
 }
+
+console.log("uihfedv",await new Client({port: 41234, host: "127.0.0.1"}).startSession())

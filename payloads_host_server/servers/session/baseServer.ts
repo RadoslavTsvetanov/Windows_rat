@@ -48,7 +48,7 @@ export enum ResponseStatuses {
 }
 
 // Request interface with generic payload
-interface Request<T = object> {
+export interface Request<T = object> {
   handlerId: string;
   payload: T;
 }
