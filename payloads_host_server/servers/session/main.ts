@@ -1,10 +1,5 @@
 import { ResponseStatuses, UDP } from "./baseServer";
-
-
-
-
-
-
+import { messages } from "./types";
 
 enum SessionStatus {
     open = "opened",
@@ -25,26 +20,6 @@ function getSessionStatus(): SessionStatus {
     return session
 }
 
-
-
-// switch (parseInt(msg.toString())) {
-//         case messages.start_session:
-//             startSession();
-//             sendResponse(server, rinfo, {
-//                 status: responses_statuses.succesfull, payload: 
-//                 ""
-//             })
-//           break;
-//         case messages.end_session:
-//             endSession()
-//             sendResponse(server, rinfo, ({status: responses_statuses.succesfull, payload: ""}))
-//           break;
-//         case messages.get_session_statues:
-//             sendResponse(server, rinfo, {status: responses_statuses.succesfull, payload: getSessionStatus() })
-//             break;
-//         default:
-//            sendResponse(server, rinfo, {status: responses_statuses.couldnt_find_handler_for_this_req, payload: ""})
-//           break;
 
 new UDP()
   .addHandler<{}>(messages.end_session.toString(), async (payload: {}) => {

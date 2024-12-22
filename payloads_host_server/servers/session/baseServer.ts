@@ -5,7 +5,6 @@ function isSomething(v: any): boolean {
   return v !== undefined && v !== null;
 }
 
-// Function to send a response with retries
 function sendResponse(
   server: dgram.Socket,
   rinfo: dgram.RemoteInfo,
@@ -127,19 +126,7 @@ export class UDP {
     server.bind(port);
   }
 }
-// 
-// Example usage of the UDP class
-// const udpServer = new UDP();
-// 
-// Add a handler for a specific request
-// udpServer.addHandler("exampleHandler", async (payload) => {
-//   Simulate some processing and return a response
-//   return {
-    // status: ResponseStatuses.Successful,
-    // payload: { message: "Request handled successfully!" },
-//   };
-// });
-// 
-// Start listening for incoming messages
-// udpServer.listen();
-// 
+
+
+
+
